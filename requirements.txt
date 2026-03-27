@@ -1,0 +1,8 @@
+flask
+ultralytics>=8.0.0
+torch
+torchvision
+opencv-python
+numpy
+pandas
+pillow

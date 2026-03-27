@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>NutriLens Dashboard</title>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+
+<div class="logo">NutriLens Dashboard</div>
+
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Analyze</a></li>
+<li><a href="/logout">Logout</a></li>
+</ul>
+
+</div>
+
+<div class="dashboard">
+
+{% if new_user %}
+
+<h2>Welcome New User 👋</h2>
+
+<p style="margin-top:15px;">
+No user data found. Please enter your details first.
+</p>
+
+<a href="{{ url_for('login') }}">
+<button class="upload-btn" style="margin-top:20px;">
+Go to Login
+</button>
+</a>
+
+{% else %}
+
+<h2>User Dashboard</h2>
+
+<table>
+<tr>
+<th>Height</th>
+<th>Weight</th>
+<th>Age</th>
+<th>Gender</th>
+</tr>
+
+<tr>
+<td>{{ height }} cm</td>
+<td>{{ weight }} kg</td>
+<td>{{ age }}</td>
+<td>{{ gender }}</td>
+</tr>
+</table>
+
+<h3 style="margin-top:30px;">
+Today's Calories Intake
+</h3>
+
+<div class="progress-bar">
+<div class="progress" style="width:{{ calories }}%"></div>
+</div>
+
+<p style="margin-top:10px;">
+{{ calories }} kcal consumed
+</p>
+
+<a href="{{ url_for('upload_food') }}">
+<button class="upload-btn" style="margin-top:20px;">
+Analyze Food
+</button>
+</a>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

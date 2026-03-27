@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>NutriLens.ai</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.section p {
+  max-width: 700px;
+  margin: auto;
+  color: #555;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="logo">NutriLens.ai</div>
+
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#ai">AI System</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+
+</div>
+
+<!-- HERO -->
+<div class="hero" id="home">
+
+<h1>NutriLens.ai</h1>
+
+<p>AI-Powered Food Recognition & Nutrition Intelligence</p>
+
+<button class="btn-primary"
+onclick="location.href='{{ url_for('login') }}'">
+Start AI Analysis
+</button>
+
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+
+<div class="feature-card">
+<h3>Food Detection</h3>
+<p>YOLOv8 detects multiple Indian food items from a thali.</p>
+</div>
+
+<div class="feature-card">
+<h3>Nutrition Analysis</h3>
+<p>Calculates calories, carbs, proteins and fats.</p>
+</div>
+
+<div class="feature-card">
+<h3>Freshness Check</h3>
+<p>Computer vision evaluates food freshness.</p>
+</div>
+
+</div>
+
+<!-- AI SYSTEM SECTION -->
+<div class="section" id="ai">
+
+<h2>AI System Workflow</h2>
+
+<p>
+NutriLens uses a YOLOv8 deep learning model trained on IndianFoodNet dataset 
+to detect multiple food items from an image. The detected items are mapped 
+to a nutrition database to calculate calories, proteins, fats and carbohydrates. 
+Additionally, freshness is analyzed using computer vision techniques.
+</p>
+
+<br>
+
+<p><b>Workflow:</b></p>
+
+<p>
+Upload Image → AI Detection → Nutrition Analysis → Recommendation → Freshness Check
+</p>
+
+</div>
+
+<!-- ABOUT SECTION -->
+<div class="section" id="about">
+
+<h2>About NutriLens</h2>
+
+<p>
+NutriLens is an AI-powered food analysis system designed to help users understand 
+their daily food intake. It combines computer vision and deep learning to detect 
+food items, evaluate nutritional values and provide personalized health insights.
+</p>
+
+<br>
+
+<p>
+This project is developed as a major academic project focusing on real-world 
+health applications using Artificial Intelligence and Machine Learning.
+</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>NutriLens Analysis</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<div class="logo">NutriLens.ai</div>
+
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/upload">Analyze</a></li>
+<li><a href="/logout">Logout</a></li>
+</ul>
+
+</div>
+
+<div class="dashboard">
+
+<div class="upload-section">
+
+<h2>Upload Food Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="file" name="food_image" required>
+
+<button class="upload-btn">Analyze Food</button>
+
+</form>
+
+</div>
+
+{% if uploaded_image_url %}
+
+<h3>Uploaded Image</h3>
+
+<img src="/{{ uploaded_image_url }}" class="food-img">
+
+<h3>Prediction:
+<span style="color:#22c55e">
+{{ predicted_label }}
+</span>
+</h3>
+
+<p>Model Confidence: {{ confidence }}%</p>
+
+<div class="progress-bar">
+<div class="progress" style="width:{{ confidence }}%"></div>
+</div>
+
+<h2>Nutrition Information</h2>
+
+<table>
+
+<tr>
+<th>Calories</th>
+<th>Carbs</th>
+<th>Proteins</th>
+<th>Fat</th>
+<th>Vitamins</th>
+</tr>
+
+<tr>
+<td>{{ calories }}</td>
+<td>{{ carbs }}</td>
+<td>{{ proteins }}</td>
+<td>{{ fat }}</td>
+<td>{{ vitamins }}</td>
+</tr>
+
+</table>
+
+<h2>Daily Calorie Tracking</h2>
+
+<table>
+
+<tr>
+<th>Running Total</th>
+<th>Daily Needs</th>
+</tr>
+
+<tr>
+<td>{{ running_total_calories }}</td>
+<td>{{ daily_calorie_needs }}</td>
+</tr>
+
+</table>
+
+<div class="recommend-box">
+
+<h3>AI Recommendation</h3>
+
+<p>{{ recommendation_text }}</p>
+
+</div>
+
+<h3>Freshness Detection</h3>
+
+<p>{{ freshness }} (Score: {{ freshness_score }}%)</p>
+
+<div class="progress-bar">
+<div class="progress"
+style="width:{{ freshness_score }}%">
+</div>
+</div>
+
+<a href="{{ url_for('logout') }}">
+<button class="logout-btn">
+Logout
+</button>
+</a>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

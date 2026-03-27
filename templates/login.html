@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>NutriLens Login</title>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+<h2>Welcome to NutriLens</h2>
+<p>Enter your details to begin analysis</p>
+
+<form method="POST">
+
+<input type="number" name="height" placeholder="Height (cm)" required>
+<input type="number" name="weight" placeholder="Weight (kg)" required>
+<input type="number" name="age" placeholder="Age" required>
+
+<select name="gender" required>
+<option disabled selected>Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+<div style="display:flex; gap:10px; margin-top:15px;">
+
+<button type="submit" style="flex:1;">Start Analysis</button>
+
+<a href="{{ url_for('dashboard') }}" style="flex:1;">
+<button type="button"
+style="width:100%; background:#22c55e;">
+Dashboard
+</button>
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>
